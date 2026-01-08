@@ -14,6 +14,7 @@ statistical backtesting.
   - Gaussian GAS
   - Student-t GAS
   - One-factor GAS model
+  - Hybrid GAS model 
 - GARCH models
 - Hybrid GAS–GARCH model
 
