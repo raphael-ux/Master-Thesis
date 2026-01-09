@@ -166,9 +166,9 @@ dates <- all_dates
 initial_date <- dates[[10570]]
 H <- 22
 
-ES <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/ES_daily.rds")
-VaR <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/VaR_daily.rds")
-vola <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/vola_daily.rds")
+ES <- readRDS("../results/Portfolios_Backtesting/GAS_Sorting/Daily_Sorting/ES_daily.rds")
+VaR <- readRDS("../results/Portfolios_Backtesting/GAS_Sorting/Daily_Sorting/VaR_daily.rds")
+vola <- readRDS("../results/Portfolios_Backtesting/GAS_Sorting/Daily_Sorting/vola_daily.rds")
 
 
 
