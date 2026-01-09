@@ -166,9 +166,9 @@ dates <- all_dates
 initial_date <- dates[[10570]]
 H <- 22
 
-ES <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/ES_historical_daily.rds")
-VaR <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/VaR_historical_daily.rds")
-vola <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/vola_historical_daily.rds")
+ES <- readRDS("../results/Portfolios_Backtesting/Historical_Sorting/Daily_Sorting/ES_historical_daily.rds")
+VaR <- readRDS("../results/Portfolios_Backtesting/Historical_Sorting/Daily_Sorting/VaR_historical_daily.rds")
+vola <- readRDS("../results/Portfolios_Backtesting/Historical_Sorting/Daily_Sorting/vola_historical_daily.rds")
 
 test_vola <- extraction(sorting = vola,initial_date = initial_date ,dates = dates,H = 22,F = 1000,type = "volatility" ,cluster = NULL)
 portfolio_vola <- test_vola$portfolio
