@@ -159,9 +159,9 @@ dates <- all_dates
 initial_date <- dates[[10570]]
 H <- 22
 
-ES <- readRDS(" ../results/Portfolios_Backtesting/GAS_Sorting/Monhtly_Sorting/ES.rds")
-VaR <- readRDS(" ../results/Portfolios_Backtesting/GAS_Sorting/Monhtly_Sorting/VaR.rds")
-vola <- readRDS(" ../results/Portfolios_Backtesting/GAS_Sorting/Monhtly_Sorting/vola.rds")
+ES <- readRDS("../results/Portfolios_Backtesting/GAS_Sorting/Monhtly_Sorting/ES.rds")
+VaR <- readRDS("../results/Portfolios_Backtesting/GAS_Sorting/Monhtly_Sorting/VaR.rds")
+vola <- readRDS("../results/Portfolios_Backtesting/GAS_Sorting/Monhtly_Sorting/vola.rds")
 
 
 test_vola <- extraction(sorting = vola,initial_date = initial_date ,dates = dates,H = 22,F = 1000,type = "volatility" ,cluster = NULL)
@@ -268,9 +268,9 @@ returns_VaR_df <- as.data.frame(return_VaR)
 returns_vola_df <- as.data.frame(return_vola)
 
 
-write.csv(returns_ES_df,"/Users/raphaelbreaud/Downloads/GAS/results/return_ES_GAS.csv",row.names = FALSE)
-write.csv(returns_VaR_df,"/Users/raphaelbreaud/Downloads/GAS/results/return_VaR_GAS.csv",row.names = FALSE)
-write.csv(returns_vola_df,"/Users/raphaelbreaud/Downloads/GAS/results/return_vola_GAS.csv",row.names = FALSE)
+write.csv(returns_ES_df,"../results/Portfolios_Backtesting/GAS_Sorting/results/return_ES_GAS.csv",row.names = FALSE)
+write.csv(returns_VaR_df,"../results/Portfolios_Backtesting/GAS_Sorting/return_VaR_GAS.csv",row.names = FALSE)
+write.csv(returns_vola_df,"../results/Portfolios_Backtesting/GAS_Sorting/return_vola_GAS.csv",row.names = FALSE)
 
 
 Cumulative_returns_ES_df <- as.data.frame(Cumulative_returns_ES)
@@ -278,18 +278,18 @@ Cumulative_returns_VaR_df <- as.data.frame(Cumulative_returns_VaR)
 Cumulative_returns_vola_df <- as.data.frame(Cumulative_returns_vola)
 
 
-write.csv(Cumulative_returns_ES_df,"/Users/raphaelbreaud/Downloads/GAS/results/cumulatives_returns_ES_GAS.csv",row.names = FALSE)
-write.csv(Cumulative_returns_VaR_df,"/Users/raphaelbreaud/Downloads/GAS/results/cumulatives_returns_VaR_GAS.csv",row.names = FALSE)
-write.csv(Cumulative_returns_vola_df,"/Users/raphaelbreaud/Downloads/GAS/results/cumulatives_returns_vola_GAS.csv",row.names = FALSE)
+write.csv(Cumulative_returns_ES_df,"../results/Portfolios_Backtesting/GAS_Sorting/cumulatives_returns_ES_GAS.csv",row.names = FALSE)
+write.csv(Cumulative_returns_VaR_df,"../results/Portfolios_Backtesting/GAS_Sorting/cumulatives_returns_VaR_GAS.csv",row.names = FALSE)
+write.csv(Cumulative_returns_vola_df,"../results/Portfolios_Backtesting/GAS_Sorting/cumulatives_returns_vola_GAS.csv",row.names = FALSE)
 
 
 volatility_ES_df <- as.data.frame(volatility_ES)
 volatility_VaR_df <-  as.data.frame(volatility_VaR)
 volatility_vola_df <- as.data.frame(volatility_vola)
 
-write.csv(volatility_ES_df,"/Users/raphaelbreaud/Downloads/GAS/results/volatility_ES_GAS.csv",row.names = FALSE)
-write.csv(volatility_VaR_df,"/Users/raphaelbreaud/Downloads/GAS/results/volatility_VaR_GAS.csv",row.names = FALSE)
-write.csv(volatility_vola_df,"/Users/raphaelbreaud/Downloads/GAS/results/volatility_vola_GAS.csv",row.names = FALSE)
+write.csv(volatility_ES_df,"../results/Portfolios_Backtesting/GAS_Sorting/volatility_ES_GAS.csv",row.names = FALSE)
+write.csv(volatility_VaR_df,"../results/Portfolios_Backtesting/GAS_Sorting/volatility_VaR_GAS.csv",row.names = FALSE)
+write.csv(volatility_vola_df,"../results/Portfolios_Backtesting/GAS_Sorting/volatility_vola_GAS.csv",row.names = FALSE)
 
 
 names(Cumulative_returns_vola) <- as.character(1:length(Cumulative_returns_vola))
@@ -311,6 +311,3 @@ for (i in 1:length(Cumulative_returns_vola)) {
 axis.Date(1, at = seq(min(cDates), max(cDates), by = "1 year"), format = "%Y", las = 2, cex.axis = 0.8)
 legend("topleft", legend = names(Cumulative_returns_vola), col = colors, lwd = 1)
 
-
-cDates_df <- as.data.frame(cDates)
-write.csv(cDates_df,"/Users/raphaelbreaud/Downloads/GAS/results/cDates_daily.csv",row.names = FALSE)
