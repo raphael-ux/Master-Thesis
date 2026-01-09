@@ -11,7 +11,7 @@ library(memoise)
 sourceCpp("/Users/raphaelbreaud/Downloads/GAS/src/Filters.cpp")
 
 FF5_data <- fread(
-  "/Users/raphaelbreaud/Downloads/GAS/data/F-F_Research_Data_5_Factors_2x3_daily.csv",
+  "../data/F-F_Research_Data_5_Factors_2x3_daily.csv",
   skip = 3,       
   sep = ",",      
   header = FALSE  
