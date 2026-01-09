@@ -263,9 +263,9 @@ for(i in 1 : length(return)){
 }
 
 ES <- test$ES
-VaR <- test$VaR
+VaR <- test$VaR  
 vola <- test$vola
 
-saveRDS(ES,   "../results/Portfolios_Backtesting/GARCH_Sorting/ES_GARCH.rds")
-saveRDS(VaR,  "../results/Portfolios_Backtesting/GARCH_Sorting/VaR_GARCH.rds")
-saveRDS(vola, "../results/Portfolios_Backtesting/GARCH_Sorting/vola_GARCH.rds")
+saveRDS(ES,   "../results/Portfolios_Backtesting/GARCH_Sorting/Monhtly_Sorting/ES_GARCH.rds")
+saveRDS(VaR,  "../results/Portfolios_Backtesting/GARCH_Sorting/Monhtly_Sorting/VaR_GARCH.rds")
+saveRDS(vola, "../results/Portfolios_Backtesting/GARCH_Sorting/Monhtly_Sorting/vola_GARCH.rds")
