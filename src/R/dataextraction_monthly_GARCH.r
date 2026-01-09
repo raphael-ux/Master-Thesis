@@ -159,9 +159,9 @@ dates <- all_dates
 initial_date <- dates[[10570]]
 H <- 22
 
-ES <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/ES_GARCH.rds")
-VaR <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/VaR_GARCH.rds")
-vola <- readRDS("/Users/raphaelbreaud/Downloads/GAS/results/vola_GARCH.rds")
+ES <- readRDS("../results/Portfolios_Backtesting/GARCH_Sorting/Monhtly_Sorting/ES_GARCH.rds")
+VaR <- readRDS("../results/Portfolios_Backtesting/GARCH_Sorting/Monhtly_Sorting/VaR_GARCH.rds")
+vola <- readRDS("../results/Portfolios_Backtesting/GARCH_Sorting/Monhtly_Sorting/vola_GARCH.rds")
 
 
 test_vola <- extraction(sorting = vola,initial_date = initial_date ,dates = dates,H = 22,F = 1000,type = "volatility" ,cluster = NULL)
