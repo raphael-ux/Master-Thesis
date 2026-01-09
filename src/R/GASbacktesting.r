@@ -290,6 +290,6 @@ VaR <- test$VaR
 vola <- test$vola
 
 
-saveRDS(ES, "/Users/raphaelbreaud/Downloads/GAS/results/ES.rds")
-saveRDS(VaR, "/Users/raphaelbreaud/Downloads/GAS/results/VaR.rds")
-saveRDS(vola, "/Users/raphaelbreaud/Downloads/GAS/results/vola.rds")
+saveRDS(ES, "../results/Portfolios_Backtesting/GAS_Sorting/Daily_Sorting/ES.rds")
+saveRDS(VaR, "../results/Portfolios_Backtesting/GAS_Sorting/Daily_Sorting/VaR.rds")
+saveRDS(vola, "../results/Portfolios_Backtesting/GAS_Sorting/Daily_Sorting/vola.rds")
