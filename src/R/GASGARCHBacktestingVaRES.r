@@ -405,7 +405,7 @@ for (sAsset in vAsset) {
 
 #tables #######################################################################################################
 
-sDir_Tables <- "/Users/raphaelbreaud/Downloads/GAS/tables"  
+sDir_Tables <- "../results/VaR_ES_Backtesting/GAS_GARCH_Hybrid_Tables"  
 alpha1 <- paste(vAlpha[1])
 alpha2 <- paste(vAlpha[2])
 
