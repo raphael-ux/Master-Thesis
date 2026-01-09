@@ -263,8 +263,8 @@ ES <- test1$ES
 VaR <- test1$VaR
 vola <- test1$vola
 
-saveRDS(ES, "/Users/raphaelbreaud/Downloads/GAS/results/ES_historical_daily.rds")
-saveRDS(VaR, "/Users/raphaelbreaud/Downloads/GAS/results/VaR_historical_daily.rds")
-saveRDS(vola, "/Users/raphaelbreaud/Downloads/GAS/results/vola_historical_daily.rds")
+saveRDS(ES, "../results/Portfolios_Backtesting/Historical_Sorting/Daily_Sorting/ES_historical_daily.rds")
+saveRDS(VaR, "../results/Portfolios_Backtesting/Historical_Sorting/Daily_Sorting/VaR_historical_daily.rds")
+saveRDS(vola, "../results/Portfolios_Backtesting/Historical_Sorting/Daily_Sorting/vola_historical_daily.rds")
 
 
