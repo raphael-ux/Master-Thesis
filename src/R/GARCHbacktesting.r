@@ -266,6 +266,6 @@ ES <- test$ES
 VaR <- test$VaR
 vola <- test$vola
 
-saveRDS(ES, "/Users/raphaelbreaud/Downloads/GAS/results/ES_GARCH.rds")
-saveRDS(VaR, "/Users/raphaelbreaud/Downloads/GAS/results/VaR_GARCH.rds")
-saveRDS(vola, "/Users/raphaelbreaud/Downloads/GAS/results/vola_GARCH.rds")
+saveRDS(ES,   "../results/portfoliosBacktesting/GARCH_sorting/ES_GARCH.rds")
+saveRDS(VaR,  "../results/portfoliosBacktesting/GARCH_sorting/VaR_GARCH.rds")
+saveRDS(vola, "../results/portfoliosBacktesting/GARCH_sorting/vola_GARCH.rds")
