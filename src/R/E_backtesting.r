@@ -1,4 +1,3 @@
-#rewrite e_Q in our case 1-p and -r and -z
 e_Q <- function(L,r,z = NULL,p){
     I <- as.numeric(L > r)
     out <- (1/(1-p))*I
