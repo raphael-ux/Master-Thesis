@@ -10,8 +10,6 @@ e_ES <- function(L,r,z,p){
     return(out)
 }
 
-
-
 M_process <- function(L,r,z,e,lambda,p){
     T <- length(L)
     out <- numeric(T)
@@ -19,7 +17,6 @@ M_process <- function(L,r,z,e,lambda,p){
     out <- cumprod(X)  
     return(out)
 }
-
 
 lambda_GREE <- function(L, r, z, e, p) {
   T <- length(L)
@@ -35,8 +32,6 @@ lambda_GREE <- function(L, r, z, e, p) {
   }
   return(lambda_star)
 }
-
-
 
 lambda_GREL <- function(L, r, z, e, p) {
   T <- length(L)
@@ -70,9 +65,6 @@ lambda_GREM <- function(L,r,z,e,p){
     }
     return(lambda_star)
 }
-
-
-
 
 e_backtest <- function(L, r, z, e, lambda = "GREM", threshold, p){
     
