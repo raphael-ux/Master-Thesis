@@ -111,7 +111,6 @@ rolling_portfolio <- function(initial_date,dates,H,F,type = c("volatility", "ES"
 
     n_quantiles <- 5
     iT <- length(dates) 
-    iT <-  10570 + 1000
     portfolio_returns <- list()
     ES <- list()
     VaR <- list()
