@@ -23,7 +23,7 @@ crsp_top100_data <- crsp_data[PERMNO %in% top100_permnos] #get the 100 hundread 
 ######################################################################################################
 crsp_top100_data[, log_ret_numeric := as.numeric(log_ret)] # the return can sometime be not numeric, have to hanlde it 
 crsp_top100_data_sub <- crsp_top100_data[, .(PERMNO, date, log_ret_numeric)] #keep PERMNO, date and RET_numeric 
-ret_wide_inv <- dcast(crsp_top500_data_sub, date ~ PERMNO, value.var = "log_ret_numeric") # col asset, row the price 
+ret_wide_inv <- dcast(crsp_top100_data_sub, date ~ PERMNO, value.var = "log_ret_numeric") # col asset, row the price 
 ######################################################################################################
 data <- ret_wide_inv[,1:100]
 vAsset_not_clean <- colnames(data)[-1]
