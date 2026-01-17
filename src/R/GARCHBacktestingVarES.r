@@ -19,7 +19,7 @@ crsp_data[, market_cap := PRC * SHROUT * 1000] #compute market_cap (adding a new
 latest_market_cap <- crsp_data[, .SD[which.max(date)], by = PERMNO] #get the last dates for each stock 
 latest_market_cap <- latest_market_cap[, .(PERMNO, market_cap)] # get the last market_cap
 top100_permnos <- latest_market_cap[order(-market_cap)][1:100, PERMNO] #get the last 100 to stocks (just PERMNO)
-crsp_top500_data <- crsp_data[PERMNO %in% top500_permnos] #get the 100 hundread last stock 
+crsp_top100_data <- crsp_data[PERMNO %in% top100_permnos] #get the 100 hundread last stock 
 ######################################################################################################
 crsp_top100_data[, log_ret_numeric := as.numeric(log_ret)] # the return can sometime be not numeric, have to hanlde it 
 crsp_top100_data_sub <- crsp_top100_data[, .(PERMNO, date, log_ret_numeric)] #keep PERMNO, date and RET_numeric 
