@@ -110,7 +110,8 @@ uGARCHspec_std <- ugarchspec(
 rolling_portfolio <- function(initial_date,dates,H,F,type = c("volatility", "ES" , "VaR") ,cluster = NULL){
 
     n_quantiles <- 5
-    iT <- length(dates)  
+    iT <- length(dates) 
+    iT <-  10570 + 1000
     portfolio_returns <- list()
     ES <- list()
     VaR <- list()
@@ -141,6 +142,10 @@ rolling_portfolio <- function(initial_date,dates,H,F,type = c("volatility", "ES"
         available_assets[[paste(date)]] <- available_full(current_date = date  , F = F)
     }  
 
+    fit <- list()
+    path <- list()
+    spec <- list()
+
     for(i in 1:length(dates_)){
         sorting <- list()
         
@@ -152,8 +157,6 @@ rolling_portfolio <- function(initial_date,dates,H,F,type = c("volatility", "ES"
         vola[[paste(current_date)]] <- list()
 
         if(current_date %in% cDates){
-            fit <- list()
-            path <- list()
             available <- available_
             past_window <- lData[[paste(current_date)]]
             print(paste("i =", i, "/", (length(dates_)), " - current_date:", current_date))
@@ -174,7 +177,6 @@ rolling_portfolio <- function(initial_date,dates,H,F,type = c("volatility", "ES"
                 next
                 }
 
-                
                 fit[[as.character(asset)]]  <- fit_try
                 path[[as.character(asset)]] <- log_data_asset
 
@@ -184,7 +186,6 @@ rolling_portfolio <- function(initial_date,dates,H,F,type = c("volatility", "ES"
                 }
 
                 forecast <- ugarchforecast(fitORspec = fit[[as.character(asset)]], data = NULL, n.ahead = 1)
-
 
                 sorting[[as.character(asset)]] <- mean(as.numeric(sigma(forecast)))
                 vola[[paste(current_date)]][[as.character(asset)]] <- mean(as.numeric(sigma(forecast)))
@@ -196,17 +197,13 @@ rolling_portfolio <- function(initial_date,dates,H,F,type = c("volatility", "ES"
                 q_mat <- t(q_mat)   
                 ES_h <- apply(q_mat, 1, function(q_vals) {trapz(u_grid, q_vals) / alpha})
                 ES[[paste(current_date)]][[as.character(asset)]] <- min(ES_h)
-    
                 path[[as.character(asset)]] <- log_data_asset
             }
         }else{
-
             available__ <- intersect(available_, available)
             print(paste("i =", i, "/", (length(dates_)), " - current_date:", current_date))
             print(paste("available assets" ,length(available__)))
             for(asset in available__){
-
-                
 
                 fit_asset <- fit[[as.character(asset)]]
 
@@ -219,7 +216,9 @@ rolling_portfolio <- function(initial_date,dates,H,F,type = c("volatility", "ES"
 
                 path[[as.character(asset)]] <- c(path[[as.character(asset)]],data_asset)
 
-                forecast <- ugarchforecast(fit_asset,data = path[[as.character(asset)]], n.ahead = 1)
+                spec[[as.character(asset)]] <- ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1,1)),mean.model = list(armaOrder = c(0,0)),distribution.model = "std", fixed.pars = as.list(coef(fit_asset)))
+
+                forecast <- ugarchforecast(fit = spec[[as.character(asset)]], data = path[[as.character(asset)]], n.ahead = 1)
 
                 sorting[[as.character(asset)]] <- as.numeric(sigma(forecast))
                 vola[[paste(current_date)]][[as.character(asset)]] <- as.numeric(sigma(forecast))
